@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Simple element definitions -->
+    <xs:element name="orderID" type="xs:string"/>
+    <xs:element name="customerID" type="xs:string"/>
+    <xs:element name="orderDate" type="xs:date"/>
+    <xs:element name="orderAmount" type="xs:decimal"/>
+
+    <!-- Complex type definition for an order -->
+    <xs:complexType name="OrderType">
+        <xs:sequence>
+            <xs:element name="orderID" type="xs:string"/>
+            <xs:element name="customerID" type="xs:string"/>
+            <xs:element name="orderDate" type="xs:date"/>
+            <xs:element name="orderAmount" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root element definition -->
+    <xs:element name="Orders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Order" type="OrderType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
